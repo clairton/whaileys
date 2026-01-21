@@ -961,6 +961,7 @@ export const makeMessagesSocket = (config: SocketConfig) => {
         fullMsg.message = patchMessageForMdIfRequired(fullMsg.message!);
 
         await relayMessage(jid, fullMsg.message!, {
+          ...options,
           messageId: fullMsg.key.id!,
           additionalAttributes
         });
